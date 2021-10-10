@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/alarming-touch-face/static/css/main.2012d0c2.chunk.css",
+    "main.js": "/alarming-touch-face/static/js/main.0745db3c.chunk.js",
+    "main.js.map": "/alarming-touch-face/static/js/main.0745db3c.chunk.js.map",
+    "runtime-main.js": "/alarming-touch-face/static/js/runtime-main.6df8e7c8.js",
+    "runtime-main.js.map": "/alarming-touch-face/static/js/runtime-main.6df8e7c8.js.map",
+    "static/js/2.80f73240.chunk.js": "/alarming-touch-face/static/js/2.80f73240.chunk.js",
+    "static/js/2.80f73240.chunk.js.map": "/alarming-touch-face/static/js/2.80f73240.chunk.js.map",
+    "static/js/3.4cd49d64.chunk.js": "/alarming-touch-face/static/js/3.4cd49d64.chunk.js",
+    "static/js/3.4cd49d64.chunk.js.map": "/alarming-touch-face/static/js/3.4cd49d64.chunk.js.map",
+    "index.html": "/alarming-touch-face/index.html",
+    "static/css/main.2012d0c2.chunk.css.map": "/alarming-touch-face/static/css/main.2012d0c2.chunk.css.map",
+    "static/js/2.80f73240.chunk.js.LICENSE.txt": "/alarming-touch-face/static/js/2.80f73240.chunk.js.LICENSE.txt",
+    "static/media/mymusiccut.1bc029c5.mp3": "/alarming-touch-face/static/media/mymusiccut.1bc029c5.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6df8e7c8.js",
+    "static/js/2.80f73240.chunk.js",
+    "static/css/main.2012d0c2.chunk.css",
+    "static/js/main.0745db3c.chunk.js"
+  ]
+}
