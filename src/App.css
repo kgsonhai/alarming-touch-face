@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  top: 50%;
+  left: 50%;
 }
 .main.touched{
   background-color: red;
@@ -13,10 +15,15 @@
   background-color: darkgoldenrod;
 }
 .control{
-  margin-top: 15px;
+  text-align: center;
+  margin-top: 25px;
 }
 .btn{
+  font-weight: bold;
   padding: 4px 16px;
-  font-size: 1.2rem;
-  margin: 0 8px;
+  font-size: 18px;
+  margin: 8px 8px;
+}
+.button_current{
+  display: none;
 }
