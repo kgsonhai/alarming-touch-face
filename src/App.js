@@ -137,11 +137,11 @@ function App() {
     <div className={`main ${touched ? "touched" : ""}`}>
 
       <video
-        ref={video}
+        ref={video} 
         className="video"
         autoPlay
       />
-
+      
       <div className="control">
         <div className={`${index === 0 ? '' : 'button_current'}`}>
           {status === '' ? <p>Bước 1: Quay video không chạm tay lên mặt để robot học</p> : status}
