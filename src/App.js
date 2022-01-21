@@ -6,7 +6,7 @@ import '@tensorflow/tfjs-backend-cpu';
 import * as tf from '@tensorflow/tfjs';
 import { Howl } from 'howler';
 import { initNotifications, notify } from '@mycv/f8-notification';
-import soundURL from './music/mymusiccut.mp3';
+import soundURL from './music/handown.mp3';
 
 var sound = new Howl({
   src: [soundURL]
