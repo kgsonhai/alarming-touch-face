@@ -7,6 +7,11 @@ import * as tf from '@tensorflow/tfjs';
 import { Howl } from 'howler';
 import { initNotifications, notify } from '@mycv/f8-notification';
 import soundURL from './music/handown.mp3';
+import dynamicImg from './dynamic.gif'
+import anhvui from './vui.svg'
+import anhbuon from './buon.svg'
+import ProgressBar from './component/Progress';
+
 
 var sound = new Howl({
   src: [soundURL]
@@ -26,6 +31,7 @@ function App() {
   const [touched, setTouched] = useState(false);
   const [index, setIndex] = useState(0);
   const [status, setStatus] = useState('');
+  const dem = useRef(0);
 
   const init = async () => {
     console.log('init..');
@@ -69,8 +75,9 @@ function App() {
     for (let i = 0; i < TRAINING_TIMES; i++) {
       let progress = parseInt((i + 1) / TRAINING_TIMES * 100) + "%";
       console.log("Progress " + progress);
-      setStatus("AI đang học: " + progress);
-      if(i===49){
+      setStatus("The robot is learning : " + progress);
+      dem.current = i;
+      if (i === 49) {
         setStatus('');
       }
 
@@ -114,7 +121,7 @@ function App() {
       setTouched(false);
     }
     setIndex(index + 1);
-    setStatus('Chương trình đã hoàn thành!!  Mời bạn đưa tay lên mặt để kiểm tra....');
+    setStatus('Program completed!! Please bring your hand to your face to check....');
 
     await sleep(200);
 
@@ -134,33 +141,43 @@ function App() {
   }, [])
 
   return (
-    <div className={`main ${touched ? "touched" : ""}`}>
+    <div className={`${touched ? 'canhbao' : 'tatcanhbao'}`}>
+      <div className={`main ${touched ? "touched" : ""}`}>
 
-      <video
-        ref={video} 
-        className="video"
-        autoPlay
-      />
-      
-      <div className="control">
-        <div className={`${index === 0 ? '' : 'button_current'}`}>
-          {status === '' ? <p>Bước 1: Quay video không chạm tay lên mặt để robot học</p> : status}
-          {status === '' ? <button className="btn" onClick={() => train(NOT_TOUCH)}>Bắt đầu</button> : ''}
+        <div className={`container ${touched ? 'videoNo' : ''}`}>
+          <video
+            ref={video}
+            className='video'
+            autoPlay
+          />
+
+          <div className="control">
+            <div className={`${index === 0 ? '' : 'button_current'}`}>
+              {status === '' ? <p>Step 1: Record a video without touching your face for the robot to learn</p> : status}
+              {status === '' ? <button className="btn" onClick={() => train(NOT_TOUCH)}>START</button> : ''}
+              {status && <ProgressBar value={dem}/> }
+              <img className='dynamicImg' src={dynamicImg} height='80px' width='80px' />
+            </div>
+            <div className={`${index === 1 ? '' : 'button_current'}`}>
+              {status === '' ? <p>Step 2: Record a video of putting your hand on your face for the robot to learn</p> : status}
+              {status === '' ? <button className="btn" onClick={() => train(TOUCHED)}>NEXT</button> : ''}
+              {status && <ProgressBar value={dem}/> }
+              <img className='dynamicImg' src={dynamicImg} height='80px' width='80px' />
+            </div>
+            <div className={`${index === 2 ? '' : 'button_current'}`}>
+              <p>Step 3: AI READY</p>
+              <button className="btn" onClick={() => run()}>TESTING</button>
+            </div>
+            <div className={`${index === 3 ? '' : 'button_current'}`}>
+              <p>{status}</p>
+            </div>
+          </div>
         </div>
-        <div className={`${index === 1 ? '' : 'button_current'}`}>
-          {status === '' ? <p>Bước 2: Quay video đưa tay gần lên mặt để robot học</p> : status}
-          {status === '' ? <button className="btn" onClick={() => train(TOUCHED)}>Tiếp tục</button> : ''}        
-        </div>
-        <div className={`${index === 2 ? '' : 'button_current'}`}>
-          <p>Bước 3: Khởi động AI</p>
-          <button className="btn" onClick={() => run()}>Kiểm tra</button>
-        </div>
-        <div className={`${index === 3 ? '' : 'button_current'}`}>
-          <p>{status}</p>
-        </div>
+
+
       </div>
-
     </div>
+
   );
 }
 
